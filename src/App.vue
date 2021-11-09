@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <!-- <init-tab/> -->
+    <init-tab/>
     <my-form/>
   </div>
 </template>
 
 <script>
 import MyForm from './components/myForm.vue'
-// import InitTab from './components/initTab.vue'
+import InitTab from './components/initTab.vue'
 export default {
   name: 'App',
   components: {
-    // InitTab
+    InitTab,
     MyForm
   }
 }
