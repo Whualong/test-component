@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <init-tab/> -->
+    <my-form/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MyForm from './components/myForm.vue'
+// import InitTab from './components/initTab.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // InitTab
+    MyForm
   }
 }
 </script>
