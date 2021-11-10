@@ -18,7 +18,7 @@
                 <td>平均</td>
             </tr>
             <!-- 腔静脉上 -->
-            <tr>
+            <tr class='qjmup'>
                 <td rowspan="2">腔静脉</td>
                 <td>上</td>
                 <template v-for="(item,index) in venaCavaUp">
@@ -60,7 +60,7 @@
             </tr>
 
             <!-- 肺动脉前 -->
-            <tr>
+            <tr class='fdmbefore'>
                 <td rowspan="2">肺动脉</td>
                 <td>吸氧前</td>
                 <template v-for="item in pulmonaryArteryBefore">
@@ -192,6 +192,18 @@ export default {
                 {q_id: "问题70",name:'',val:'2'},
             ]
         }
+    },
+    created(){
+        console.log('table created');
+    },
+    beforeMount(){
+        console.log('table beforeMount')
+    },
+    mounted(){
+        console.log('table mounted')
+    },
+    methods:{
+    
     }
 }
 </script>
@@ -218,6 +230,13 @@ td{
     white-space: nowrap;
 }
 tr:hover{
+    background-color: #f5f7fa;
+}
+
+.fdmbefore:hover,.fdmbefore:hover +tr{
+    background-color: #f5f7fa;
+}
+.qjmup:hover,.qjmup:hover +tr{
     background-color: #f5f7fa;
 }
 /deep/.el-input__inner{

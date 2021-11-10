@@ -13,6 +13,15 @@ export default {
   components: {
     InitTab,
     MyForm
+  },
+  created(){
+    console.log('app created');
+  },
+  beforeMount(){
+    console.log('app beforeMount')
+  },
+  mounted(){
+    console.log('app mounted')
   }
 }
 </script>

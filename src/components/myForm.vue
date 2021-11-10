@@ -76,6 +76,15 @@ export default {
         }
       }
     },
+    created(){
+        console.log('form created');
+    },
+    beforeMount(){
+        console.log('form beforeMount')
+    },
+    mounted(){
+        console.log('form mounted')
+    },
     methods: {
       onSubmit() {
         console.log('submit!');
@@ -88,5 +97,6 @@ export default {
 .form-app{
     width:50%;
     margin:auto;
+    margin-top:30px;
 }
 </style>
