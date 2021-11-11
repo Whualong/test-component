@@ -14,6 +14,11 @@ export default {
     InitTab,
     MyForm
   },
+  data(){
+    return{
+
+    }
+  },
   created(){
     console.log('app created');
   },

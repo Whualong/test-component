@@ -18,9 +18,9 @@
                 <td>平均</td>
             </tr>
             <!-- 腔静脉上 -->
-            <tr class='qjmup'>
-                <td rowspan="2">腔静脉</td>
-                <td>上</td>
+            <tr>
+                <td class="table-header" rowspan="2">腔静脉</td>
+                <td class="table-header">上</td>
                 <template v-for="(item,index) in venaCavaUp">
                     <td :key="item.q_"  v-if='index!=3'>
                         <el-input v-model="item.val" placeholder="请输入内容"></el-input>
@@ -32,7 +32,7 @@
             </tr>
             <!-- 腔静脉下 -->
             <tr>
-                <td>下</td>
+                <td class="table-header">下</td>
                 <template v-for="item in venaCavaDown">
                     <td :key="item.q_id">
                         <el-input v-model="item.val" placeholder="请输入内容"></el-input>
@@ -42,7 +42,7 @@
 
             <!-- 右心房 -->
             <tr>
-                <td colspan="2">右心房</td>
+                <td class="table-header" colspan="2">右心房</td>
                 <template v-for="item in rightAtrium">
                     <td :key="item.q_id">
                         <el-input v-model="item.val" placeholder="请输入内容"></el-input>
@@ -51,7 +51,7 @@
             </tr>
             <!-- 右心室 -->
             <tr>
-                <td colspan="2">右心室</td>
+                <td class="table-header" colspan="2">右心室</td>
                 <template v-for="item in rightVentricle">
                     <td :key="item.q_id">
                         <el-input v-model="item.val" placeholder="请输入内容"></el-input>
@@ -61,8 +61,8 @@
 
             <!-- 肺动脉前 -->
             <tr class='fdmbefore'>
-                <td rowspan="2">肺动脉</td>
-                <td>吸氧前</td>
+                <td class="table-header" rowspan="2">肺动脉</td>
+                <td class="table-header">吸氧前</td>
                 <template v-for="item in pulmonaryArteryBefore">
                     <td :key="item.q_id">
                         <el-input v-model="item.val" placeholder="请输入内容"></el-input>
@@ -72,7 +72,7 @@
             <!-- 肺动脉后 -->
             <tr>
                 <!-- <td>右心室</td> -->
-                <td>吸氧后</td>
+                <td class="table-header">吸氧后</td>
                <template v-for="item in pulmonaryArteryAfter">
                     <td :key="item.q_id">
                         <el-input v-model="item.val" placeholder="请输入内容"></el-input>
@@ -81,7 +81,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">左心房</td>
+                <td class="table-header" colspan="2">左心房</td>
                 <template v-for="item in leftAtrium">
                     <td :key="item.q_id">
                         <el-input v-model="item.val" placeholder="请输入内容"></el-input>
@@ -89,7 +89,7 @@
                 </template>
             </tr>
             <tr>
-                <td colspan="2">左心室</td>
+                <td class="table-header" colspan="2">左心室</td>
                 <template v-for="item in leftVentricle">
                     <td :key="item.q_id">
                         <el-input v-model="item.val" placeholder="请输入内容"></el-input>
@@ -97,7 +97,7 @@
                 </template>
             </tr>
             <tr>
-                <td colspan="2">升主动脉</td>
+                <td class="table-header" colspan="2">升主动脉</td>
                 <template v-for="item in ascendingAorta">
                     <td :key="item.q_id">
                         <el-input v-model="item.val" placeholder="请输入内容"></el-input>
@@ -105,7 +105,7 @@
                 </template>
             </tr>
             <tr>
-                <td colspan="2">股动脉</td>
+                <td class="table-header" colspan="2">股动脉</td>
                 <template v-for="item in femoralArtery">
                     <td :key="item.q_id">
                         <el-input v-model="item.val" placeholder="请输入内容"></el-input>
@@ -217,7 +217,7 @@ table {
     border-collapse:collapse;
 }
 td{
-    border:1px solid #ebeef5;
+    border:1px solid #DCDFEA;
     transition: background-color .25s ease;
     padding: 12px;
     min-width: 0;
@@ -229,17 +229,15 @@ td{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-tr:hover{
-    background-color: #f5f7fa;
-}
-
-.fdmbefore:hover,.fdmbefore:hover +tr{
-    background-color: #f5f7fa;
-}
-.qjmup:hover,.qjmup:hover +tr{
-    background-color: #f5f7fa;
-}
 /deep/.el-input__inner{
     min-width: 100px;
+}
+.tHeader ,.table-header{
+    background: #EDEDF7;
+
+}
+table /deep/.el-input__inner{
+    border: none;
+    text-align: center;
 }
 </style>
