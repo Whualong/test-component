@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-    <init-tab/>
-    <my-form/>
+    <!-- <init-tab/> -->
+    <!-- <my-form/> -->
+    <yzm/>
   </div>
 </template>
 
 <script>
-import MyForm from './components/myForm.vue'
-import InitTab from './components/initTab.vue'
+// import MyForm from './components/myForm.vue'
+// import InitTab from './components/initTab.vue'
+import yzm from './components/yzm.vue'
 export default {
   name: 'App',
   components: {
-    InitTab,
-    MyForm
+    // InitTab,
+    // MyForm
+    yzm
   },
   data(){
     return{
