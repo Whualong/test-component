@@ -1,22 +1,13 @@
 <template>
   <div id="app">
-    <!-- <init-tab/> -->
-    <!-- <my-form/> -->
-    <yzm/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import MyForm from './components/myForm.vue'
-// import InitTab from './components/initTab.vue'
-import yzm from './components/yzm.vue'
+
 export default {
   name: 'App',
-  components: {
-    // InitTab,
-    // MyForm
-    yzm
-  },
   data(){
     return{
 
@@ -35,12 +26,17 @@ export default {
 </script>
 
 <style>
+html,body{
+  height: 100%;
+  margin:0;
+  overflow: hidden;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: inherit;
 }
 </style>

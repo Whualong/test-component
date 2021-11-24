@@ -1,13 +1,15 @@
 <template>
-  <div id="app">
+  <div id="yzm-app">
     <div class="text-capture">
-        <span>短信验证</span>
-        <p> 验证码已发送至手机号（+86）{{phone}}</p>
-    </div>
-    <div class="captcha">
-        <!-- 验证码框子 -->
-        <div class='input-box'>
-             <input v-for="(c, index) in ct" :key="index"
+        <div class='left-icon' @click="forward">
+          <img src='../assets/icon-left.png'>
+        </div>
+        <div class='yzm-title'>输入短信验证码</div>
+        <div class='yzm-content'>验证码已发送至手机号（+86）{{phone}}</div>
+        <!--begin 验证码  -->
+        <div class="captcha">
+          <!-- 验证码框子 -->
+            <input v-for="(c, index) in ct" :key="index"
               type="number" v-model="ct[index]" ref="input" 
               :class="{'active-input':index <= cIndex}"
               @input="e => {onInput(e.target.value, index)}" 
@@ -15,14 +17,15 @@
               @focus="onFocus"
               :disabled="loading"
             >
-            <!-- 文案 -->
-            <div class='textValue'>
-                <div v-show='mesShow' class='getYzm' @click='getYzm'>获取验证码</div>
-                <div v-show='!mesShow' class='reSend' @click='reSend'>重新发送{{" ("+second+")"}}</div>
-            </div>
         </div>
-        
-  </div>
+        <!-- 文案 -->
+        <div class='textValue'>
+            <div v-show='mesShow' class='getYzm' @click='getYzm'>重新发送</div>
+            <div v-show='!mesShow' class='reSend' @click='reSend'>{{second}}秒后重新发送</div>
+        </div>
+        <!-- end  -->
+    </div>
+    
 </div>
 
 </template>
@@ -66,21 +69,30 @@ export default {
     }
   },
   mounted() {
+    this.getYzm()
     this.resetCaret();
     this.initPaste()
   },
   methods: {
+    forward(){
+      history.back()
+    },
     // 监听粘贴
     initPaste(){
       document.addEventListener('paste', async (e) => {
+        
         e.preventDefault();
         const text = await navigator.clipboard.readText();
-        if(text.length == this.ct.length){
+        //检测粘贴内容是否合法
+        let reg=/^\d{6}$/;
+        if( reg.test(text)){
           this.ct = []
           Array.prototype.forEach.call(text,(item)=>{   
               this.ct.push(Number(item))
               // this.ct[index]=Number(item)
           })
+        }else{
+           // alert('请粘贴合格的验证码')
         }
       });
     },
@@ -109,21 +121,33 @@ export default {
             }
         },1000))
     },
+    checkInput(str = '',index){
+        let reg =/^\d{1}$/;
+        if(!reg.test(str)){
+            this.$refs.input[index].value=''
+            this.$set(this.ct,index,'');
+        }
+        else{
+          this.$set(this.ct,index,str);
+        }
+    },
     // 控制输入逻辑
     onInput(val, index) {
       this.msg = ''
       val = val.replace(/\s/g, '');
-      if(isNaN(val)){ //非数字
-        val = '' 
-      }
-      if (index == this.ctSize - 1) {
-        this.ct[this.ctSize - 1] = val[0];   // 最后一个码，只允许输入一个字符。
+      if (index == this.ctSize - 1) { // 最后一个输入框
+        this.checkInput(val[0],index)
+       // this.ct[this.ctSize - 1] = val[0];   // 最后一个，只允许输入一个字符。
       } else if(val.length > 1) {
         let i = index;
         for (i = index; i < this.ctSize && i - index < val.length; i++) {
-          this.ct[i] = val[i];
+          // 自动追加输入
+          this.checkInput(val[i],i)
+          //this.ct[i] = val[i];
         }
         this.resetCaret();
+      }else{// 校验数字非数字清空
+        this.checkInput(val,index)
       }
     },
     // 重置光标位置。
@@ -171,28 +195,61 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+#yzm-app{
+  height: 100%;
+  overflow: hidden;
+  text-align: left;
+  font-family: PingFangSC-Semibold, PingFang SC;
+}
+.text-capture{
+  background-image: url('../assets/home-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 346px;
+}
+.left-icon{
+  padding: 13px 10px 8px;
+  text-align: left;
+}
+.left-icon>img{
+  width: 23px;
+  height: 21px;
+
+}
+.yzm-title{
+  padding:25px 16px 10px;
+  font-size: 26px;
+  font-weight: bolder;
+}
+.yzm-content{
+  font-size: 14px;
+  color: #999999;
+  line-height: 20px;
+  padding-left: 16px;
+}
 .captcha {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  padding-top: 80px;
-}
-.input-box{
-  position: relative;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 50px 16px 0;
 }
 input {
+  padding:0;
+  flex:1;
   margin-right: 10px;
-  width: 20px;
+  width: 36px;
   height: 40px;
   text-align: center;
   border: none;
-  border: 2px solid lightgray;
+  border-radius: 0;
+  border-bottom: 2px solid lightgray;
+  background-color: transparent;
   font-size: 24px;
   outline: none;
-
-  border-radius: 8px;
   transition: border 0.3s linear;
 }
 input:last-of-type {
@@ -200,7 +257,7 @@ input:last-of-type {
 }
 .active-input{
     transition: border 0.3s linear;
-    border-color:skyblue;
+    border-color:#333;
 }
 input:disabled {
   color: #000;
@@ -210,17 +267,17 @@ input:disabled {
   text-align: center;
 }
 .textValue{
-   position: absolute;
-   top:60px;
-   right: 0;
+   padding:28px 16px 0;
    user-select: none;
 }
 .getYzm{
-    color:#333;
     cursor: pointer;
+    font-size: 14px;
+    color: #4865FF;
 }
 .reSend{
-    color:lightgray;
     cursor: pointer;
+    font-size: 14px;
+    color: rgba(72, 101, 255, 0.5);
 }
 </style>
