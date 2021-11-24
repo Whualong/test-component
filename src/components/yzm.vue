@@ -91,8 +91,6 @@ export default {
               this.ct.push(Number(item))
               // this.ct[index]=Number(item)
           })
-        }else{
-           // alert('请粘贴合格的验证码')
         }
       });
     },
@@ -159,7 +157,6 @@ export default {
       // 监听 focus 事件，将光标重定位到“第一个空白符的位置”。
       let index = this.ct.findIndex((item) => item === '');
       index = (index + this.ctSize) % this.ctSize;
-      console.log(this.$refs.input)
       this.$refs.input[index].focus();
     },
     // 删除

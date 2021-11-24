@@ -48,7 +48,7 @@ export default {
         getYzm(){
             if(this.check()){
                 if(!this.checkIt){
-                    Toast.fail('请阅读并勾选用户协议');
+                    Toast.fail('请先勾选同意隐私政策');
                 }else{
                     this.isOk=true;
                     this.$router.push({
@@ -141,18 +141,17 @@ export default {
 .protocal{
     display: flex;
     padding:0px 40px 0px;
+    align-items: center;
 }
 .read{
     width:12px;
     height: 12px;
-    margin-top:4px;
 }
 .unread{
     width: 10px;
     height: 10px;
     border: 1px solid #979797;
     border-radius: 50%;
-    margin-top: 4px;
 }
 .protocal>.content{
     margin-left: 6px;
