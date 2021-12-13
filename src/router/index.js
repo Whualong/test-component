@@ -5,7 +5,7 @@ import VueRouter from 'vue-router';
     routes:[
         { 
             path: '/', 
-            component: ()=>import('../components/home.vue')
+            component: ()=>import('../components/HelloWorld.vue')
         },
         { 
             path: '/yzm', 
@@ -18,6 +18,14 @@ import VueRouter from 'vue-router';
             path: '/error', 
             component: ()=>import('../error/index.vue'),
         },
+        {
+            path: '/rili',
+            component: ()=>import('../components/rili.vue')
+        },
+        {
+            path : '/pie',
+            component : ( )=>import('../components/ZyPie.vue')
+        }
     ]
 }) 
 

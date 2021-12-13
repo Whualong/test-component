@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .test{
+                width: 100px;
+                height: 100px;
+                border: 1px solid red;
+            }
+            /deep/.span{
+                background-color: red;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class='test'>Ldlsfl
+
+            <span class='span'></span>
+        </div>
+    </body>
+    <script>
+        console.log(1);
+        let p = new Promise((res,rej)=>{
+            console.log(2)
+            return res(3)
+        })
+        p.then((d)=>{console.log(d)})
+        window.requestAnimationFrame(()=>{
+            console.log(4)
+            Promise.resolve('ha').then((r)=>console.log(r))
+        })
+        window.requestIdleCallback(()=>{
+            console.log(5);
+            Promise.resolve(6).then((r)=>{console.log(r)})
+        })
+        setTimeout(()=>{
+            console.log(7);
+        })
+    </script>
+</html>

@@ -21,7 +21,7 @@ var router = new _vueRouter["default"]({
     path: '/',
     component: function component() {
       return Promise.resolve().then(function () {
-        return _interopRequireWildcard(require('../components/home.vue'));
+        return _interopRequireWildcard(require('../components/HelloWorld.vue'));
       });
     }
   }, {
@@ -39,6 +39,20 @@ var router = new _vueRouter["default"]({
     component: function component() {
       return Promise.resolve().then(function () {
         return _interopRequireWildcard(require('../error/index.vue'));
+      });
+    }
+  }, {
+    path: '/rili',
+    component: function component() {
+      return Promise.resolve().then(function () {
+        return _interopRequireWildcard(require('../components/rili.vue'));
+      });
+    }
+  }, {
+    path: '/pie',
+    component: function component() {
+      return Promise.resolve().then(function () {
+        return _interopRequireWildcard(require('../components/ZyPie.vue'));
       });
     }
   }]
