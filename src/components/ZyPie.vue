@@ -1,6 +1,6 @@
 <template>
     <div>
-        <canvas id="pie" :width="width" :height="height"></canvas>
+        <canvas id="pie"  :width="width" :height="height"></canvas>
     </div>
 </template>
 
@@ -22,14 +22,13 @@ export default {
                     lineWidth : 50,
                     radius : 80,
                     data : [
-                        { color : '#ff599b', shadowColor : 'RGBA(255, 200, 222, 1)', value : 4 },
-                        { color : '#00E8F1', shadowColor : 'RGBA(194, 250, 252, 1)', value : 10 },
-                        { color : '#506EFF', shadowColor : 'RGBA(162, 202, 253, 1)', value :  0}
+                        { color : '#ff599b', shadowColor : 'RGBA(255, 200, 222, 1)', value : 100 },
+                        { color : '#00E8F1', shadowColor : 'RGBA(191, 249, 252, 1)', value : 1 },
+                        { color : '#506EFF', shadowColor : 'RGBA(162, 202, 253, 1)', value : 2 }
                     ]
                 }
             }
         }
-
     },
     data(){
         return {
@@ -43,17 +42,12 @@ export default {
             circleY : 100,
         }
     },
-    created(){
-
-    },
     mounted(){
         this.context = document.getElementById('pie').getContext('2d');
         this.init()
         this.render()
-        //this.defaultInit()
     },
     methods:{
-
         init(){
             this.context.lineWidth = this.chartOption.lineWidth || this.lineWidth;
             this.radius = this.chartOption.radius || this.radius;
@@ -83,7 +77,6 @@ export default {
                     this.context.restore()
                 }
                 this.lastRender(data)
-
             }else{
                 let startRadius = 0;
                 let endRadius = 0;
@@ -111,7 +104,7 @@ export default {
             this.context.save()
             this.context.strokeStyle = data[0].color;
             this.context.beginPath();
-            this.context.arc(this.circleX, this.circleY, this.radius, 0 ,Math.PI * 1/24, false);
+            this.context.arc(this.circleX, this.circleY, this.radius, 0 ,Math.PI * 1/12, false);
             this.context.stroke();
             this.context.restore()
         },
