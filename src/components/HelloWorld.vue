@@ -1,6 +1,7 @@
 <template>
 <div class="hello">
     <zy-ring :chartOption="chartOption" width="300px" height="300px" />
+     <div class="paper">我法拉利撒娇的立法将撒旦法富士达的</div>
 </div>
 </template>
 
@@ -17,22 +18,23 @@ export default {
     data() {
         return {
             chartOption: {
-                lineWidth: 20, // 环的宽度
-                radius: 50, // 半径
-                data: [{
+                lineWidth: 50, // 环的宽度
+                radius: 100, // 半径
+                data: [
+                    {
                         color: '#ff599b',
                         shadowColor: 'RGBA(255, 200, 222, 1)',
-                        value: 3
+                        value: 50
                     },
                     {
                         color: '#00E8F1',
                         shadowColor: 'RGBA(191, 249, 252, 1)',
-                        value: 12
+                        value: 120
                     },
                     {
                         color: '#506EFF',
                         shadowColor: 'RGBA(162, 202, 253, 1)',
-                        value: 12
+                        value: 100
                     }
                 ]
             }
@@ -44,6 +46,25 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
+.paper{
+    margin-left: 100px;
+    overflow: hidden;
+    width: 34ch;
+    white-space: nowrap;
+    animation: typing 2s steps(20),printing 0.5s step-end infinite alternate;
+    border-right: 1px solid black;
+}
+@keyframes typing {
+    from{
+        width:0;
+    }
+}
+@keyframes printing {
+    50%{
+        border-color:transparent;
+
+    }
+}
 h3 {
     margin: 40px 0 0;
 }
