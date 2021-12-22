@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class='zy-date-list'>
-            <div   @click="popDate(item)" :class="{'zy-date-item':true,'zy-date__active':item.dateParam == active_date}" v-for="(item,index) in date_list" :key="index">
+            <div   @click="popDate(item)" :class="{'zy-date-item':true,'zy-date__active':item.dateParam == active_date,'zy-date__previous': previous(item),'zy-date__left':index == 0 ,'zy-date__right':index == 6}" v-for="(item,index) in date_list" :key="index">
                 {{item.date}}
             </div>
         </div>
@@ -22,6 +22,7 @@ export default {
             titleList : [ '一','二','三','四','五','六','日' ],
             defaultList : [],
             date_list : [],
+            disabledPrev : false,
         }
     },
     created(){
@@ -53,6 +54,9 @@ export default {
             }
         },
         popDate(item){
+            if( new Date(this.getDate().dateParam) - new Date(item.dateParam) > 0 && this.disabledPrev ){
+                return
+            } 
             this.active_date = item.dateParam
             this.$emit('getDate',this.active_date)
         },
@@ -86,7 +90,12 @@ export default {
                 dateSecond : `${ year }-${ month }-${ date } ${hour}:${minute}:${seconds}`,
                 date : `${date}`
             };
-        }       
+        },
+        previous(data){
+            
+            return new Date(this.getDate().dateParam) - new Date(data.dateParam) > 0 && this.disabledPrev
+        },   
+           
     }
     
 
@@ -121,12 +130,14 @@ export default {
 }
 .zy-date-item{
     flex:1;
-    height: 20px;
+    height: 100%;
     font-size: 14px;
     font-family: PingFangSC-Semibold, PingFang SC;
     font-weight: bolder;
     color: #333333;
-    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .zy-date__active{
     color: #FFFFFF;
@@ -135,7 +146,7 @@ export default {
     transition: all 0.3s ease;
 }
 .zy-date__active::after{
-    position: absolute;
+    position: absolute; 
     content: "";
     display: block;
     width: 30px;
@@ -144,9 +155,20 @@ export default {
     border-radius: 50%;
     z-index: -1;
     background: #4865FF;
-    top: -5px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
+}
+.zy-date__previous{
+    color: #999;
+}
+.zy-date__left{
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.zy-date__right{
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;   
 }
 
 </style>

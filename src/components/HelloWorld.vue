@@ -1,12 +1,14 @@
 <template>
 <div class="hello">
-    <zy-ring :chartOption="chartOption" width="300px" height="300px" />
+    <rili  />
+    <zy-ring v-if="false" :chartOption="chartOption" width="300px" height="300px" />
      <div class="paper">我法拉利撒娇的立法将撒旦法富士达的</div>
 </div>
 </template>
 
 <script>
 import ZyRing from './ZyPie.vue'
+import Rili from './rili.vue'
 export default {
     name: 'HelloWorld',
     props: {
@@ -14,6 +16,7 @@ export default {
     },
     components: {
         ZyRing,
+        Rili
     },
     data() {
         return {

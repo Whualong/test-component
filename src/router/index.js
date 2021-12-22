@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
     routes:[
         { 
             path: '/', 
+            //redirect: '/rili',
             component: ()=>import('../components/HelloWorld.vue')
         },
         { 

@@ -19,6 +19,7 @@ var router = new _vueRouter["default"]({
   mode: 'history',
   routes: [{
     path: '/',
+    //redirect: '/rili',
     component: function component() {
       return Promise.resolve().then(function () {
         return _interopRequireWildcard(require('../components/HelloWorld.vue'));
