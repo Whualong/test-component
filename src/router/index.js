@@ -5,7 +5,7 @@ import VueRouter from 'vue-router';
     routes:[
         { 
             path: '/', 
-            //redirect: '/rili',
+            redirect: '/img',
             component: ()=>import('../components/HelloWorld.vue')
         },
         { 
@@ -26,6 +26,10 @@ import VueRouter from 'vue-router';
         {
             path : '/pie',
             component : ( )=>import('../components/ZyPie.vue')
+        },
+        {
+            path : '/img',
+            component : () => import('../components/uploadImg.vue')
         }
     ]
 }) 

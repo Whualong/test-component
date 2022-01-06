@@ -19,7 +19,7 @@ var router = new _vueRouter["default"]({
   mode: 'history',
   routes: [{
     path: '/',
-    //redirect: '/rili',
+    redirect: '/img',
     component: function component() {
       return Promise.resolve().then(function () {
         return _interopRequireWildcard(require('../components/HelloWorld.vue'));
@@ -54,6 +54,13 @@ var router = new _vueRouter["default"]({
     component: function component() {
       return Promise.resolve().then(function () {
         return _interopRequireWildcard(require('../components/ZyPie.vue'));
+      });
+    }
+  }, {
+    path: '/img',
+    component: function component() {
+      return Promise.resolve().then(function () {
+        return _interopRequireWildcard(require('../components/uploadImg.vue'));
       });
     }
   }]
