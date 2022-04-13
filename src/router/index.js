@@ -5,8 +5,17 @@ import VueRouter from 'vue-router';
     routes:[
         { 
             path: '/', 
-            redirect: '/img',
+            redirect: '/undef',
             component: ()=>import('../components/HelloWorld.vue')
+        },
+        {
+            path : '/filter',
+            component: () =>import('../components/Filter.vue')
+
+        },
+        { 
+            path: '/undef', 
+            component: ()=>import('../components/Undef.vue'),
         },
         { 
             path: '/yzm', 
@@ -30,6 +39,10 @@ import VueRouter from 'vue-router';
         {
             path : '/img',
             component : () => import('../components/uploadImg.vue')
+        },
+        {
+            path : '/tab',
+            component : ( ) =>import('../components/ZyTable.vue')
         }
     ]
 }) 

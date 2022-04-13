@@ -18,3 +18,14 @@ new Vue({
   render: h => h(App),
   router
 }).$mount('#app')
+
+function * test(){
+  let x = yield new Promise((res,rej)=>{
+    res('haha')
+  })
+  let y = yield setTimeout(()=>{
+    console.log('haha22');
+    return 'hahah2'
+  })
+  return 'haha33'
+}

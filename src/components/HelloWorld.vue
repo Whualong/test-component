@@ -1,14 +1,23 @@
 <template>
 <div class="hello">
-    <rili  />
-    <zy-ring v-if="false" :chartOption="chartOption" width="300px" height="300px" />
-     <div class="paper">我法拉利撒娇的立法将撒旦法富士达的</div>
+    <!-- <rili  />
+    <zy-ring v-if="true" :chartOption="chartOption" width="300px" height="300px" />
+     <div class="paper">我法拉利撒娇的立法将撒旦法富士达的</div> -->
+    <my-slot>
+        <template slot="test" slot-scope="person">
+           测试腹肌
+           <div @click="test">123</div>
+        </template>
+    </my-slot>
 </div>
 </template>
 
 <script>
 import ZyRing from './ZyPie.vue'
+
+
 import Rili from './rili.vue'
+import mySlot from './mySlot.vue'
 export default {
     name: 'HelloWorld',
     props: {
@@ -16,10 +25,15 @@ export default {
     },
     components: {
         ZyRing,
-        Rili
+        Rili,
+        mySlot
     },
     data() {
         return {
+            person:{
+                name : '负极',
+                age : 99999
+            },
             chartOption: {
                 lineWidth: 50, // 环的宽度
                 radius: 100, // 半径
@@ -41,6 +55,11 @@ export default {
                     }
                 ]
             }
+        }
+    },
+    methods: {
+        test() {
+            console.log(this)
         }
     }
 }

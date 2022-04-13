@@ -37,5 +37,14 @@
         setTimeout(()=>{
             console.log(7);
         })
+
+        // 
+        let p = new Promise((res,rej)=>{
+            setTimeout(rej,3000,2)
+        })
+        Promise.resolve(p).then(()=>{console.log(1)},(r)=>{console.log(2,r)}).catch(()=>{
+            console.log(3);
+        })
+        // 
     </script>
 </html>
