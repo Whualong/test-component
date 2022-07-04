@@ -1,3 +1,13 @@
+/*
+ * @Author: wenhualong wenhualong@zuoshouyisheng.com
+ * @Date: 2021-11-24 15:05:28
+ * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
+ * @LastEditTime: 2022-06-26 09:31:02
+ * @FilePath: /eleapp/src/router/index.js
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by wenhualong wenhualong@zuoshouyisheng.com, All Rights Reserved. 
+ */
 import VueRouter from 'vue-router';
 
  const router = new VueRouter({
@@ -5,7 +15,7 @@ import VueRouter from 'vue-router';
     routes:[
         { 
             path: '/', 
-            redirect: '/undef',
+            redirect: '/swipe',
             component: ()=>import('../components/HelloWorld.vue')
         },
         {
@@ -43,6 +53,22 @@ import VueRouter from 'vue-router';
         {
             path : '/tab',
             component : ( ) =>import('../components/ZyTable.vue')
+        },
+        {
+            path : '/photo',
+            component : ( ) =>import('../components/Photo.vue')
+        },
+        {
+            path : '/oto',
+            component : ( ) =>import('../components/Camera.vue')
+        },
+        {
+            path : '/swipe',
+            component : () =>import('../components/List.vue')
+        },
+        {
+            path : "/img/handle",
+            component : () => import('../components/ImgHandle.vue')
         }
     ]
 }) 

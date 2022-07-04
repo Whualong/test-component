@@ -1,0 +1,69 @@
+<!--
+ * @Author: wenhualong wenhualong@zuoshouyisheng.com
+ * @Date: 2022-06-29 21:12:30
+ * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
+ * @LastEditTime: 2022-06-29 21:13:45
+ * @FilePath: /eleapp/src/components/originSwipe/index.html
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by wenhualong wenhualong@zuoshouyisheng.com, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./index.css"/>
+	</head>
+	<body>
+		<button class="btn btn-open" type="button">时间选择器</button>
+		<div hidden class="mask">
+		    <div class="slide-box">
+		        <h4>时间选择器</h4>
+		        <div class="picker-group">
+		            <div class="picker-column">
+		                <ul class="picker-content"></ul>
+		            </div>
+		            <div class="picker-column">
+		                <ul class="picker-content"></ul>
+		            </div>
+		        </div>
+		        <button class="btn btn-sure" type="button">确定</button>
+		    </div>
+		</div>
+	</body>
+	<script src="./index.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		// 调用方式
+		console.log('d,')
+		let btn = document.querySelector(('.btn-open'))
+		let btn_sure = document.querySelector(('.btn-sure'))
+		let mask = document.querySelector(('.mask'))
+		btn.addEventListener('click', () => {
+			mask.style.display = 'block'
+		})
+		btn_sure.addEventListener('click', () => {
+			// mask.style.display = 'hidden'
+		})
+		function createList(start, end) {
+		    const list = [];
+		    for (i = start; i < end; i++) {
+		        list[i] = i < 10 ? '0' + i : '' + i;
+		    }
+		    return list;
+		}
+		const hours = createList(0, 24), minutes = createList(0, 60);
+		const pickerColumns = document.querySelectorAll('.picker-column');
+		const pickerContents = document.querySelectorAll('.picker-content');
+		const hourPicker = new Picker({
+		    pickerColumn: pickerColumns[0],
+		    pickerContent: pickerContents[0],
+		    list: hours
+		});
+		const minutePicker = new Picker({
+		    pickerColumn: pickerColumns[1],
+		    pickerContent: pickerContents[1],
+		    list: minutes
+		});
+	</script>
+</html>

@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.btn {
+    height: 32px;
+    padding: 0 15px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 32px;
+    color: #FFF;
+    border: none;
+    background: #1890ff;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, .6);
+    animation: fadeIn .3s forwards;
+}
+.slide-box {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+    background: #FFF;
+    user-select: none;
+}
+.fade-in {
+    animation: fadeIn .3s forwards;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fade-out {
+    animation: fadeOut .3s forwards;
+}
+@keyframes fadeOut {
+    from {
+        opacity: 10;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.slide-up {
+    animation: slideUp .3s forwards;
+}
+@keyframes slideUp {
+    from {
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slide-down {
+    animation: slideDown .3s forwards;
+}
+@keyframes slideDown {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 100%, 0);
+    }
+}
+h4 {
+    height: 24px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+}
+.picker-group {
+    display: flex;
+}
+.picker-column {
+    position: relative;
+    flex: 1;
+    height: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+    touch-action: none;
+}
+.picker-column::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 79px;
+    border-bottom: 1px solid #ebebeb;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .9), rgba(255, 255, 255, .6));
+}
+.picker-column::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 79px;
+    border-top: 1px solid #ebebeb;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .6), rgba(255, 255, 255, .9));
+}
+li {
+    list-style: none;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+}
+.btn-sure {
+    display: block;
+    margin: 15px auto 0;
+}

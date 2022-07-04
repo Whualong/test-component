@@ -1,6 +1,13 @@
 <template>
     <div>
         <canvas id="pie"  :width="width" :height="height"></canvas>
+        <div class="parent" @click="parent($event)">
+            <div>
+                <span class="child">
+                    潘勇哟昂
+                </span>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -48,6 +55,12 @@ export default {
         this.render()
     },
     methods:{
+        child(){
+
+        },
+        parent(e){
+            console.log(e.target.parentElement.parentElement)
+        },
         init(){
             this.context.lineWidth = this.chartOption.lineWidth || this.lineWidth;
             this.radius = this.chartOption.radius || this.radius;
@@ -131,4 +144,15 @@ export default {
 </script>
 
 <style>
+.parent{
+    width: 200px;
+    height: 100px;
+    background: orange;
+}
+.child{
+    display: inline-block;
+    width: 80px;
+    height: 50px;
+    background: red;
+}
 </style>
