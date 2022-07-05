@@ -2,20 +2,19 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2021-11-24 15:05:28
  * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
- * @LastEditTime: 2022-06-26 09:31:02
+ * @LastEditTime: 2022-07-04 17:28:51
  * @FilePath: /eleapp/src/router/index.js
  * @Description: 
  * 
  * Copyright (c) 2022 by wenhualong wenhualong@zuoshouyisheng.com, All Rights Reserved. 
  */
 import VueRouter from 'vue-router';
-
  const router = new VueRouter({
     mode:'history',
     routes:[
         { 
             path: '/', 
-            redirect: '/swipe',
+            redirect: '/rule',
             component: ()=>import('../components/HelloWorld.vue')
         },
         {
@@ -69,6 +68,10 @@ import VueRouter from 'vue-router';
         {
             path : "/img/handle",
             component : () => import('../components/ImgHandle.vue')
+        },
+        {
+            path : "/rule",
+            component : () => import('pages/Rule/index')
         }
     ]
 }) 
