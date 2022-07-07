@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2022-06-23 16:24:57
  * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
- * @LastEditTime: 2022-06-30 11:22:44
+ * @LastEditTime: 2022-07-07 11:04:16
  * @FilePath: /eleapp/src/components/Swipe.vue
  * @Description: 
  * 
@@ -40,7 +40,7 @@ export default {
         return {
             activeIndex:'',
             transformX:0,
-            marginR:20,
+            marginR:50,
             isPointerdown:false,
             lastX:0,
             diffX:0,
@@ -222,7 +222,7 @@ export default {
         color: #B1B2BA;
         line-height: 22px;
         white-space: nowrap;
-        margin-right: 20px;
+        margin-right: 50px;
     }
     .swipe-item.active{
         color:orange;
