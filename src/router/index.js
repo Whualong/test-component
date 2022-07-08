@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2021-11-24 15:05:28
  * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
- * @LastEditTime: 2022-07-07 11:01:35
+ * @LastEditTime: 2022-07-08 12:42:08
  * @FilePath: /eleapp/src/router/index.js
  * @Description: 
  * 
@@ -14,7 +14,7 @@ import VueRouter from 'vue-router';
     routes:[
         { 
             path: '/', 
-            redirect: '/swipe',
+            redirect: '/tabs',
             component: ()=>import('../components/HelloWorld.vue')
         },
         {
@@ -72,6 +72,10 @@ import VueRouter from 'vue-router';
         {
             path : "/rule",
             component : () => import('pages/Rule/index')
+        },
+        {
+            path : "/tabs",
+            component : () => import('../components/tabs')
         }
     ]
 }) 
