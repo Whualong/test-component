@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2021-11-24 15:05:28
  * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
- * @LastEditTime: 2022-07-08 12:42:08
+ * @LastEditTime: 2022-07-26 13:38:58
  * @FilePath: /eleapp/src/router/index.js
  * @Description: 
  * 
@@ -14,7 +14,7 @@ import VueRouter from 'vue-router';
     routes:[
         { 
             path: '/', 
-            redirect: '/tabs',
+            redirect: '/sign',
             component: ()=>import('../components/HelloWorld.vue')
         },
         {
@@ -76,6 +76,26 @@ import VueRouter from 'vue-router';
         {
             path : "/tabs",
             component : () => import('../components/tabs')
+        },
+        {
+            path : "/timePicker",
+            component : () => import( '../components/timePicker.vue')
+        },
+        {
+            path : '/target/bar',
+            component : () => import('components/targetBar.vue')
+        },
+        {
+            path : '/bar3',
+            component : () => import('components/bar3.vue')
+        },
+        {
+            path : '/iframe',
+            component : () => import( 'components/iframe.vue')
+        },
+        {
+            path : '/sign',
+            component : () => import( 'components/userToken.vue')
         }
     ]
 }) 

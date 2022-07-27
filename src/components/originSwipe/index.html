@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2022-06-29 21:12:30
  * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
- * @LastEditTime: 2022-06-29 21:13:45
+ * @LastEditTime: 2022-07-22 15:05:09
  * @FilePath: /eleapp/src/components/originSwipe/index.html
  * @Description: 
  * 
@@ -31,6 +31,9 @@
 		        <button class="btn btn-sure" type="button">确定</button>
 		    </div>
 		</div>
+		<button id="activity">
+			跳转活动
+		</button>
 	</body>
 	<script src="./index.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
@@ -65,5 +68,11 @@
 		    pickerContent: pickerContents[1],
 		    list: minutes
 		});
+		let domAc = document.querySelector('#activity')
+		domAc.onclick = function(){
+			// http://211.154.163.94:3720/activity?user_id=测试用户
+			// http://localhost:20000/activity?user_id=测试用户
+			location.href="http://211.154.163.94:3720/activity?user_id=测试用户"
+		}
 	</script>
 </html>

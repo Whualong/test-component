@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2022-01-05 13:59:26
  * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
- * @LastEditTime: 2022-07-04 17:31:59
+ * @LastEditTime: 2022-07-15 15:06:51
  * @FilePath: /eleapp/vue.config.js
  * @Description: 
  * 
@@ -16,6 +16,7 @@ module.exports={
     lintOnSave: false,
     chainWebpack(config){
       config.resolve.alias
+      .set( 'common', resolve( 'src/common' ) )
       .set( 'components', resolve( 'src/components' ) )
       .set( 'utils', resolve( 'src/utils' ) )
       .set( 'pages', resolve( 'src/pages' ) )
