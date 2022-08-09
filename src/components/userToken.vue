@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2022-07-26 13:25:49
  * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
- * @LastEditTime: 2022-07-27 14:57:21
+ * @LastEditTime: 2022-07-27 15:02:01
  * @FilePath: /eleapp/src/components/userToken.vue
  * @Description: 
  * 
@@ -49,6 +49,19 @@ export default {
             this.envText = this.envText == '测试环境' ? '生产环境' : '测试环境'
             this.env = this.envText == '测试环境' ? 'w6q5YmcZ' : 'smuDjv8m'
            // this.getUserToken()
+        },
+        getEnv(){
+            let zimu =[
+                'a','b','c','d','e','f','g','h','i','j','k'
+            ]
+            let user_id = ''
+            let env = 'smuDjv8m'
+            let timeStap = Date.parse(new Date())/1000
+            for(let i =0 ;i<20;i++){
+                user_id += zimu[Math.round(Math.random()*10)]
+            }
+            let sign = md5.hex(`${timeStap}|${user_id}|${env}`)
+            this.link = `https://saas-sinosig.zuoshouyisheng.com/middle/page?user_id=${user_id}&timestamp=${timeStap}&sign=${sign}`
         }
     }
 }
