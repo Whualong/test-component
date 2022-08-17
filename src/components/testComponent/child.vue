@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2022-08-05 18:06:04
  * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
- * @LastEditTime: 2022-08-08 13:53:51
+ * @LastEditTime: 2022-08-10 11:41:25
  * @FilePath: /eleapp/src/components/testComponent/child.vue
  * @Description: 
  * 
@@ -23,17 +23,40 @@
 
 <script>
 export default {
+    props : {
+        data : {
+            
+        }  
+    },
+    data(){
+        return {
+            innerData : []
+        }
+    },
+    watch : {
+        data : {
+            deep : true,
+            handler(val){
+                console.log('子组件监听',val)
+                this.innerData = this.data.users
+                console.log('拿到值',this.innerData)
+            }
+        }
+    },
+    mounted(){
+         console.log('第一',this.data)
+         
+         console.log('第二',this.data.users)
+        console.log('第三',this.$props.data.users)
+    },
     beforeCreate(){
- console.log('child beforecreated')
+        console.log('child beforecreated')
     },
     created(){
         console.log('child created')
     },
     beforeMount(){
         console.log('child before mount')
-    },
-    mounted(){
-        console.log('child mounted')
     },
     beforeDestroy(){
         console.log('child beforedestory')

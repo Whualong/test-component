@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2022-08-05 18:03:49
  * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
- * @LastEditTime: 2022-08-05 18:08:01
+ * @LastEditTime: 2022-08-10 11:29:02
  * @FilePath: /eleapp/src/components/testComponent/index.vue
  * @Description: 
  * 
@@ -10,7 +10,7 @@
 -->
 <template>
     <div>
-        <childCom/>
+        <childCom :data="group_info"/>
     </div>
 </template>
 
@@ -20,14 +20,29 @@ export default {
     components:{
         childCom,
     },
-    beforeCreate(){
- console.log('pareent beforecreated')
+    data(){
+        return {
+            group_info : {
+                users: [],
+                age : 12
+            }
+        }
     },
     created(){
-        console.log('pareent created')
+        setTimeout(()=>{
+            this.group_info.users = [
+                {
+                    name : 'pyy吃屎'
+                }
+            ]
+        },900)
     },
+    beforeCreate(){
+    console.log('pareent beforecreated')
+    },
+
     beforeMount(){
- console.log('pareent beforemount')
+    console.log('pareent beforemount')
     },
     mounted(){
  console.log('pareent mounted')
