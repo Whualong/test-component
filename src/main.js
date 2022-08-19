@@ -1,8 +1,8 @@
 /*
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2021-11-09 10:28:35
- * @LastEditors: wenhualong wenhualong@zuoshouyisheng.com
- * @LastEditTime: 2022-07-18 15:27:32
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-08-17 16:16:15
  * @FilePath: /eleapp/src/main.js
  * @Description: 
  * 
@@ -26,19 +26,8 @@ Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 
-
 new Vue({
   render: h => h(App),
   router
 }).$mount('#app')
 
-function * test(){
-  let x = yield new Promise((res,rej)=>{
-    res('haha')
-  })
-  let y = yield setTimeout(()=>{
-    console.log('haha22');
-    return 'hahah2'
-  })
-  return 'haha33'
-}
