@@ -29,7 +29,7 @@ export default {
 html,body{
   height: 100%;
   margin:0;
-  overflow: hidden;
+  overflow: auto;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

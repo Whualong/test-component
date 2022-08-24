@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2021-11-24 15:05:28
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-08-17 16:39:37
+ * @LastEditTime: 2022-08-23 14:40:27
  * @FilePath: /eleapp/src/router/index.js
  * @Description: 
  * 
@@ -14,7 +14,7 @@ import VueRouter from 'vue-router';
     routes:[
         { 
             path: '/', 
-            redirect: '/swipeImg',
+            redirect: '/exportImg',
             component: ()=>import('../components/HelloWorld.vue')
         },
         {
@@ -109,6 +109,14 @@ import VueRouter from 'vue-router';
         {
             path : '/swipeImg',
             component : () => import( 'pages/swipeImg.vue')
+        },
+        {
+            path : '/suggest',
+            component : () => import( 'pages/Suggest/index.vue')
+        },
+        {
+            path : '/exportImg',
+            component : () => import( 'pages/export.vue')
         }
     ]
 }) 

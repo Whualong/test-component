@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2021-11-09 10:28:35
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-08-17 16:16:15
+ * @LastEditTime: 2022-08-19 18:13:27
  * @FilePath: /eleapp/src/main.js
  * @Description: 
  * 
@@ -23,7 +23,10 @@ Vue.prototype.$echarts = echarts
 Vue.use(Vant);
 Vue.use(elementUi);
 Vue.use(VueRouter)
-
+// 全局注册icon组件
+import SvgIcon from 'components/SvgIcon.vue';
+import 'assets/icons/index.js';
+Vue.component('SvgIcon', SvgIcon);
 Vue.config.productionTip = false
 
 new Vue({
