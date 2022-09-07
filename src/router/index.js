@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2021-11-24 15:05:28
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-08-23 14:40:27
+ * @LastEditTime: 2022-09-06 14:48:35
  * @FilePath: /eleapp/src/router/index.js
  * @Description: 
  * 
@@ -14,7 +14,7 @@ import VueRouter from 'vue-router';
     routes:[
         { 
             path: '/', 
-            redirect: '/exportImg',
+            redirect: '/verticalTime',
             component: ()=>import('../components/HelloWorld.vue')
         },
         {
@@ -117,6 +117,14 @@ import VueRouter from 'vue-router';
         {
             path : '/exportImg',
             component : () => import( 'pages/export.vue')
+        },
+        {
+            path : '/testPto',
+            component : () => import( 'components/testPhoto.vue')
+        },
+        {
+            path : '/verticalTime',
+            component : () => import( 'pages/time/index.vue')
         }
     ]
 }) 

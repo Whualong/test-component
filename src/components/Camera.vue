@@ -71,7 +71,7 @@ export default {
       getUserMedia((err, stream) => {
         if (err) {
           console.log(err)
-          this.msg = err.name;
+          this.msg = err.name;1
           this.$emit('error', err);
         } else {
           this.cameraon = true;

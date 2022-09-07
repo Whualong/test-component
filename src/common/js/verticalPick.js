@@ -1,6 +1,6 @@
-class Picker {
+export default class Picker {
     constructor(options) {
-        this.options = Object.assign({}, options);
+        this.options = Object.assign({activeIndex:0}, options);
         this.isPointerdown = false;
         this.itemHeight = 40; // 列表项高度
         this.maxY = this.itemHeight * 2;
@@ -15,12 +15,14 @@ class Picker {
         this.bindEventListener();
     }
     render() {
-        let html = '';
-        for (const item of this.options.list) {
-            html += '<li>' + item + '</li>';
-        }
-        this.options.pickerContent.innerHTML = html;
+        // let html = '';
+        // for (const item of this.options.list) {
+        //     html += '<li class="opt-item">' + item + '</li>';
+        // }
+        // this.options.pickerContent.innerHTML = html;
         this.options.pickerContent.style.transform = 'translate3d(0px, ' + this.maxY + 'px, 0px)';
+        let initY = this.maxY - this.options.activeIndex*40
+        this.options.pickerContent.style.transform = 'translate3d(0px, ' + initY + 'px, 0px)';
     }
     handlePointerdown(e) {
         // 如果是鼠标点击，只响应左键
@@ -94,8 +96,12 @@ class Picker {
         }
         // 计算停止位置使其为itemHeight的整数倍
         let i = Math.round(this.translateY / this.itemHeight);
+        let oldResult = this.result
         this.translateY = i * this.itemHeight;
         this.result = this.options.list[2 - this.translateY / this.itemHeight];
+        if(this.result != oldResult && this.options.change){
+            this.options.change(this.result)
+        }
     }
 }
 
