@@ -2,7 +2,7 @@
  * @Author: wenhualong wenhualong@zuoshouyisheng.com
  * @Date: 2021-11-24 15:05:28
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-09-06 14:48:35
+ * @LastEditTime: 2022-09-21 16:05:37
  * @FilePath: /eleapp/src/router/index.js
  * @Description: 
  * 
@@ -14,7 +14,7 @@ import VueRouter from 'vue-router';
     routes:[
         { 
             path: '/', 
-            redirect: '/verticalTime',
+            redirect: '/pie',
             component: ()=>import('../components/HelloWorld.vue')
         },
         {
@@ -103,7 +103,10 @@ import VueRouter from 'vue-router';
         },
         {
             path : '/child',
-            component : () => import( 'components/testComponent/index.vue')
+            component : () => import( 'components/testComponent/index.vue'),
+            meta : {
+                keepAlive : true
+            }
             
         },
         {

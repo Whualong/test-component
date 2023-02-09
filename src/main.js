@@ -24,8 +24,9 @@ Vue.use(Vant);
 Vue.use(elementUi);
 Vue.use(VueRouter)
 // 全局注册icon组件
-import SvgIcon from 'components/SvgIcon.vue';
-import 'assets/icons/index.js';
+import SvgIcon  from '@/common/js/index';
+
+
 Vue.component('SvgIcon', SvgIcon);
 Vue.config.productionTip = false
 

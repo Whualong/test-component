@@ -1,6 +1,9 @@
 <template>
     <div>
+        
         <canvas id="pie"  :width="width" :height="height"></canvas>
+
+        <svg-icon name="icon-退"></svg-icon>
         <div class="parent" @click="parent($event)">
             <div>
                 <span class="child">
@@ -12,7 +15,9 @@
 </template>
 
 <script>
+import SvgIcon from './SvgIcon.vue';
 export default {
+  components: { SvgIcon },
     props:{
         width : {
             type : String,
